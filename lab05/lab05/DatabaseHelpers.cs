@@ -11,7 +11,7 @@ public static class DatabaseHelpers
         if (!db.Tasks.Any())
         {
             db.Tasks.AddRange(
-                Enumerable.Range(0, Faker.Random.Int(3, 10))
+                Enumerable.Range(0, new Random().Next(3, 10))
                     .Select(_ => new TaskItem
                     {
                         Title = Faker.Lorem.Sentence(),

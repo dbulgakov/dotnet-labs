@@ -32,7 +32,7 @@ ConsoleHelpers.PrintTasks(inProgressTasks);
 
 if (allTasks.Count != 0)
 {
-    var task = allTasks.First();
+    var task = await db.Tasks.OrderBy(x => x.Id).FirstAsync();
     task.Status = TaskItemStatus.Completed;
     await db.SaveChangesAsync();
     ConsoleHelpers.Log($"Updated Task: {task.Id} → Status = {task.Status}");
